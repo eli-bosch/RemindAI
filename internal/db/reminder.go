@@ -81,6 +81,7 @@ func UpdateReminder(updatedReminder *models.Reminder) *models.Reminder {
 		"zip":         updatedReminder.Zip,
 		"country":     updatedReminder.City,
 		"time":        updatedReminder.Time,
+		"remind_at":   updatedReminder.RemindAt,
 		"travel_time": updatedReminder.TravelTime,
 		"repeating":   updatedReminder.Repeating,
 		"end_date":    updatedReminder.EndDate,
