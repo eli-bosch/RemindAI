@@ -35,7 +35,8 @@ type Reminder struct {
 	Zip         string    `gorm:"column:zip;size:10" json:"zip"`
 	Country     string    `gorm:"column:country;size:50" json:"country"`
 	Time        time.Time `gorm:"column:time;not null" json:"time"`
-	EarlyRemind int8      `gorm:"column:early_remind" json:"early_remind"`
+	RemindAt    time.Time `gorm:"column:remind_at" json:"remind_at"`
+	TravelTime  time.Time `gorm:"column:travel_time" json:"travel_time"`
 	Repeating   bool      `gorm:"column:repeating" json:"repeating"`
 	EndDate     time.Time `gorm:"column:end_date" json:"end_date"`
 	CreatedAt   time.Time
