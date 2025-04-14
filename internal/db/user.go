@@ -42,12 +42,7 @@ func GetUserByID(ID int64) *models.User {
 	return &user
 }
 
-func UpdateUser(updatedUser *models.User) *models.User {
-	existingUser := GetUserByID(int64(updatedUser.ID))
-	if existingUser == nil {
-		return nil
-	}
-
+func UpdateUser(updatedUser *models.User, existingUser *models.User) *models.User {
 	db := config.GetDB()
 	err := db.Model(&existingUser).Update(map[string]interface{}{
 		"username": updatedUser.Username,

@@ -23,7 +23,7 @@ func GetAllReminder() []models.Reminder {
 	db := config.GetDB()
 	err := db.Find(&reminders).Error
 	if err != nil {
-		fmt.Printf("Error finding reminderrs: %v\n", err)
+		fmt.Printf("Error finding reminders: %v\n", err)
 	}
 
 	return reminders
@@ -41,7 +41,7 @@ func GetReminderByID(ID int64) *models.Reminder {
 	return &reminder
 }
 
-func GetReminderByUserID(ID uint) *[]models.Reminder {
+func GetReminderByUserID(ID int64) *[]models.Reminder {
 	var reminders []models.Reminder
 
 	db := config.GetDB()
