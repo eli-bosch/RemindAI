@@ -21,6 +21,10 @@ type User struct {
 	UpdatedAt time.Time
 }
 
+func (User) TableName() string {
+	return "users"
+}
+
 type Reminder struct {
 	ID          uint      `gorm:"primaryKey" json:"primaryKey"`
 	UserID      uint      `gorm:"not null;index" json:"user_id"`
@@ -36,4 +40,8 @@ type Reminder struct {
 	EndDate     time.Time `gorm:"column:end_date" json:"end_date"`
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
+}
+
+func (Reminder) TableName() string {
+	return "reminders"
 }
