@@ -10,7 +10,7 @@ var RegisterUserRoutes = func(router *mux.Router) {
 	router.HandleFunc("/user/{user_id}", controller.GetUserByID).Methods("GET")
 	router.HandleFunc("/user/", controller.CreateNewUser).Methods("PUT")
 	router.HandleFunc("/user/", controller.UpdateUser).Methods("POST")
-	router.HandleFunc("/user/", controller.DeleteUser).Methods("DELETE")
+	router.HandleFunc("/user/{user_id}", controller.DeleteUser).Methods("DELETE")
 }
 
 var RegisterReminderRoutes = func(router *mux.Router) {

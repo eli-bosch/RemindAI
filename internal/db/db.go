@@ -11,7 +11,10 @@ import (
 func init() {
 	db := config.Connect()
 
-	db.AutoMigrate(models.User{}, models.Reminder{})
+	db.AutoMigrate(
+		models.User{},
+		models.Reminder{},
+	)
 
 	fmt.Println("Database is connected...")
 }

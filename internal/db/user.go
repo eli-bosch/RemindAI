@@ -5,7 +5,7 @@ import (
 
 	"github.com/eli-bosch/remindAI/config"
 	"github.com/eli-bosch/remindAI/internal/models"
-)
+) //FIX: Go through and change to mysql queries, should be simple
 
 func CreateUser(u *models.User) *models.User {
 	db := config.GetDB()
@@ -25,6 +25,7 @@ func GetAllUsers() []models.User {
 	err := db.Find(&users).Error
 	if err != nil {
 		fmt.Printf("Error finding users: %v\n", err)
+		return nil
 	}
 
 	return users
@@ -35,8 +36,9 @@ func GetUserByID(ID int64) *models.User {
 
 	db := config.GetDB()
 	err := db.First(&user, ID).Error
-	if err != nil {
+	if err != nil || user.Username == "" {
 		fmt.Printf("Error finding user with ID %d: %v\n", ID, err)
+		return nil
 	}
 
 	return &user
@@ -72,6 +74,7 @@ func DeleteUser(ID int64) *models.User {
 	err := db.Delete(&user).Error
 	if err != nil {
 		fmt.Printf("Error deleting user with ID %d: %v\n", ID, err)
+		return nil
 	}
 
 	return user

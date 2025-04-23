@@ -10,7 +10,7 @@ type User struct {
 	ID        uint       `gorm:"primaryKey" json:"user_id"`
 	Username  string     `gorm:"column:username;size:32;not null; unique" json:"username"`
 	Password  string     `gorm:"column:password;size:128;not null" json:"password"`
-	Phone     string     `gorm:"column:password;size:15" json:"phone"`
+	Phone     string     `gorm:"column:phone;size:15" json:"phone"`
 	First     string     `gorm:"column:first;size:50" json:"first"`
 	Last      string     `gorm:"column:last;size:50" json:"last"`
 	Address   string     `gorm:"column:address;size:100" json:"address"`
